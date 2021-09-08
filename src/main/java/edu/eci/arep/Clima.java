@@ -37,7 +37,6 @@ public class Clima {
                         if (inputLine.contains("GET")) {
                                 arch = inputLine.split("/");
                                 elem = arch[1].split(" ");
-                                System.out.print(elem[0]);
                         }
                 
                 }
@@ -55,7 +54,7 @@ public class Clima {
         }
     }
     public static void file(String contenido , OutputStream clientOutput, PrintWriter out ) throws FileNotFoundException, IOException{  
-            System.out.println(contenido); 
+
             if(!contenido.equals("clima")){
                 String outputLine = "<!DOCTYPE html>\n" +
                         "<html lang=\"en\">\n"
@@ -76,26 +75,7 @@ public class Clima {
                         + "</html>";
                 out.write(("HTTP/1.1 404 Not Found \r\n" + "Content-Type: text/html; charset=\"utf-8\" \r\n" + "\r\n"
 						+ outputLine));
-            }else{
-                String outputLine = "<!DOCTYPE html>\n" +
-                "<html lang=\"en\">\n"
-                        + "<head>\n"
-                        + "    <meta charset=\"UTF-8\">\n"
-                        + "    <title>index file</title>\n"
-                        + "</head>\n"
-                        + "<body>\n"
-                        + "<div class=\"container\">\n"
-                        + "  <div class=\"title\">\n"
-                        + "    <h1 class=\"text-title\">SERVER</h1>\n"
-                        + "  </div>\n"
-                        + "  <div class=\"container-input\">\n"
-                        + "    <p>para buscar la informacion de una ciudad en especifico grega al path : /'nombre de la ciudad' </b></p>\n"
-                        + "  </div>\n"
-                        + "</div>\n"
-                        + "</body>\n"
-                        + "</html>";
-                out.write(("HTTP/1.1 404 Not Found \r\n" + "Content-Type: text/html; charset=\"utf-8\" \r\n" + "\r\n"
-						+ outputLine));
+            }
             }
     }
 }
