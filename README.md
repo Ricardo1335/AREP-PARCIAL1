@@ -26,7 +26,7 @@
 
 ## Construcción
 * [Maven](https://maven.apache.org/) - Dependency Management
-* Build to Heroku
+* [Heroku](https://arep-parcial-1-2021-2.herokuapp.com/clima) - Build to Heroku
 
 ## Autor
 * Ricardo Amaya Rivera 
