@@ -4,8 +4,6 @@ package edu.eci.arep;
 
 import edu.eci.arep.exceptions.WeatherServiceException;
 import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,8 +16,8 @@ import java.util.logging.Logger;
 
 public class Clima {
     public static void main(String[] args) throws IOException, WeatherServiceException {
-        ServerSocket serv = null;
-        Socket sc = null;
+        ServerSocket serv;
+        Socket sc;
         final int PUETO = 5000;
         WeatherService ws = new WeatherService();
 
@@ -32,7 +30,7 @@ public class Clima {
                 PrintWriter out = new PrintWriter(sc.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(sc.getInputStream()));
                 String inputLine, outputLine;
-                String[] arch = null;
+                String[] arch;
                 String[] elem = null;
 
                 while ((inputLine = in.readLine()) != null) {
@@ -43,7 +41,12 @@ public class Clima {
                         }
                 
                 }
-                file(ws.getCityWeather(elem[0]).toString(), sc.getOutputStream(), out);
+                if(!"clima".equals(elem[0])) {
+                    file(ws.getCityWeather(elem[0]).toString(), sc.getOutputStream(), out);
+                }else {
+                     file("clima", sc.getOutputStream(), out);
+                }
+                
         
         
              }
